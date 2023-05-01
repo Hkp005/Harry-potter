@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>
+            Form Validation
+        </title>
+        <script type="text/javascript">
+            function validate()
+            {
+                var Username = document.getElementById("uname").value;
+                var Password = document.getElementById("pass").value;
+
+                var regex = /[!@#$%^&*()_+ ]/g;
+
+            if(Username==""){
+            alert("f");
+            return false
+            }
+
+        
+            if(regex.test(Username))
+            {
+                alert("special character hata MC");
+                return false;
+            }
+            else if(Username.value.trim().length<6)
+            {
+                alert("Pura naam likh BSDK");
+                return false;
+            }
+            
+            else if(Password.value.trim()=="")
+            {
+                alert("Blank Password");
+                return false;
+            }
+            else if(Password.value.trim().length<6)
+            {
+                alert("Password to Short");
+                return false;
+            }
+            else{
+                return true;
+            }
+            
+            
+        }
+        </script> 
+    </head>  
+        <body>
+            <form onsubmit="return validate()" action="Sample.html">
+                <input id="uname" placeholder="Username" type="text"/>
+                <br><br>
+                <input id="pass" placeholder="Password" type="password"/>
+                <br><br>
+                <button  type="submit">submit</button>
+
+            </form>
+
+        </body>
+    
+    </html>
