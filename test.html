@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Form</title>
+	<script>
+		function validateForm() {
+			var username = document.forms["loginForm"]["username"].value;
+			var password = document.forms["loginForm"]["password"].value;
+            var number = document.forms["loginForm"]["number"].value;
+			var specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/g;
+			if (username == "" || password == "") {
+				alert("Please fill in all fields.");
+				return false;
+			}
+			if (specialCharRegex.test(username)) {
+				alert("Username cannot contain special characters.");
+				return false;
+			}
+            else if(username.length<6)
+            {
+                   alert("Complete the username");
+                    return false;
+            }
+            else if(number.length<10 || number.length>10)
+            {
+                   alert("Invalid Number");
+                    return false;
+            }
+            else{
+                    return true;
+                                    }
+            }
+		
+	</script>
+</head>
+<body>
+	<h1>Login Form</h1>
+	<form name="loginForm" onsubmit="return validateForm()">
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username"><br><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password"><br><br>
+        <label for="number">Mobile Number:</label>
+        <input type="number" id="number" name="Mobile Number"><br><br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
